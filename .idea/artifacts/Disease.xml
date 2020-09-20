@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Disease">
+    <output-path>$PROJECT_DIR$/out/artifacts/Disease</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="P:\ProjetPerso\Disease\src\sample\Main.java" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Disease.jar">
+        <element id="module-output" name="Disease" />
+      </element>
+      <element id="module-source" name="Disease" />
+    </root>
+  </artifact>
+</component>

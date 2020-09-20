@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_disease" default="compile.module.disease">
+  <dirname property="module.disease.basedir" file="${ant.file.module_disease}"/>
+  
+  <property name="module.jdk.home.disease" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.disease" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.disease" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.disease" value="-encoding UTF-8 -source 11 -target 11 ${compiler.args}"/>
+  
+  <property name="disease.output.dir" value="${module.disease.basedir}/out/production/Disease"/>
+  <property name="disease.testoutput.dir" value="${module.disease.basedir}/out/test/Disease"/>
+  
+  <path id="disease.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="disease.module.production.classpath">
+    <path refid="${module.jdk.classpath.disease}"/>
+  </path>
+  
+  <path id="disease.runtime.production.module.classpath">
+    <pathelement location="${disease.output.dir}"/>
+  </path>
+  
+  <path id="disease.module.classpath">
+    <path refid="${module.jdk.classpath.disease}"/>
+    <pathelement location="${disease.output.dir}"/>
+  </path>
+  
+  <path id="disease.runtime.module.classpath">
+    <pathelement location="${disease.testoutput.dir}"/>
+    <pathelement location="${disease.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.disease">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.disease">
+    <patternset refid="excluded.from.module.disease"/>
+  </patternset>
+  
+  <path id="disease.module.sourcepath">
+    <dirset dir="${module.disease.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.disease" depends="compile.module.disease.production,compile.module.disease.tests" description="Compile module Disease"/>
+  
+  <target name="compile.module.disease.production" depends="register.custom.compilers" description="Compile module Disease; production classes">
+    <mkdir dir="${disease.output.dir}"/>
+    <javac2 destdir="${disease.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.disease}/javac">
+      <compilerarg line="${compiler.args.disease}"/>
+      <bootclasspath refid="disease.module.bootclasspath"/>
+      <classpath refid="disease.module.production.classpath"/>
+      <src refid="disease.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.disease"/>
+    </javac2>
+    
+    <copy todir="${disease.output.dir}">
+      <fileset dir="${module.disease.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.disease.tests" depends="register.custom.compilers,compile.module.disease.production" description="compile module Disease; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.disease" description="cleanup module">
+    <delete dir="${disease.output.dir}"/>
+    <delete dir="${disease.testoutput.dir}"/>
+  </target>
+</project>

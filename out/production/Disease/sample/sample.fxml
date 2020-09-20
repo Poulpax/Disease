@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="mainGridPane" alignment="center" hgap="10" prefHeight="407.0" prefWidth="451.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TabPane fx:id="mainTabPain" prefHeight="460.0" prefWidth="499.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Paramètre Maladie">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="514.0">
+                     <children>
+                        <Button fx:id="buttonStart" layoutX="22.0" layoutY="307.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="407.0" text="Start" />
+                        <Slider fx:id="sliderTauxMortParGen" blockIncrement="1.0" layoutX="28.0" layoutY="65.0" prefHeight="54.0" prefWidth="215.0" value="3.0" />
+                        <Label layoutX="14.0" layoutY="40.0" text="Pourcentage de chance de mourrir par génération" />
+                        <Label layoutX="14.0" layoutY="118.0" text="Pourcentage de chance qu' une personne en contamine une autre" />
+                        <Slider fx:id="sliderTauxContamination" blockIncrement="1.0" layoutX="28.0" layoutY="145.0" prefHeight="54.0" prefWidth="215.0" value="10.0" />
+                        <Label layoutX="14.0" layoutY="217.0" text="Nombre de Vacciné" />
+                        <Slider fx:id="sliderNombreVaccine" blockIncrement="1.0" layoutX="189.0" layoutY="199.0" max="10000.0" prefHeight="54.0" prefWidth="215.0" value="10.0" />
+                        <Label layoutX="14.0" layoutY="271.0" text="Nombre de Malade" />
+                        <Slider fx:id="sliderNombreMalade" blockIncrement="1.0" layoutX="189.0" layoutY="253.0" max="10000.0" prefHeight="54.0" prefWidth="215.0" value="10.0" />
+                        <Label fx:id="labelTauxMortParGen" layoutX="243.0" layoutY="84.0" text="3" />
+                        <Label fx:id="labelTauxContamination" layoutX="240.0" layoutY="164.0" text="10" />
+                        <Label fx:id="labelTauxVaccine" layoutX="404.0" layoutY="217.0" text="10" />
+                        <Label fx:id="labelTauxMalade" layoutX="404.0" layoutY="271.0" text="10" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Paramètre Visuel">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="textFieldTailleFenetre" layoutX="114.0" layoutY="109.0" prefHeight="25.0" prefWidth="81.0" text="900" />
+                        <Label layoutX="14.0" layoutY="113.0" text="Taille Fenêtre" />
+                        <TextField fx:id="textFieldNbCaseParLigne" layoutX="179.0" layoutY="152.0" prefHeight="25.0" prefWidth="81.0" text="300" />
+                        <Label layoutX="14.0" layoutY="156.0" text="Nombre de case Par Ligne" />
+                        <Label layoutX="15.0" layoutY="201.0" text="Temps entre chaque génération (ms)" />
+                        <TextField fx:id="textFieldTempsEntreGen" layoutX="220.0" layoutY="197.0" prefHeight="25.0" prefWidth="81.0" text="100" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Paramètre Avancé">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
